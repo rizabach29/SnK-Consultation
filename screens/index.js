@@ -5,15 +5,10 @@ export const screens = [
   {
     name: "Home",
     component: home,
-    option: {
-      title: "Home",
-    },
+    option: { home },
   },
   {
     name: "Description",
     component: description,
-    option: {
-      title: "Description",
-    },
   },
 ];

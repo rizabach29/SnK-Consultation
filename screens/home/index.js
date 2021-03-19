@@ -1,15 +1,30 @@
-import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Button, StyleSheet, Text, View, ScrollView } from "react-native";
+import { SearchBar } from "react-native-elements";
+import doctors from "../../doctor_list.json";
+import Card from "../../component/Card";
+import { FlatList } from "react-native";
 
 export default function home({ navigation }) {
+  const [search, setSearch] = useState("");
+
+  const updateSearch = (search) => {
+    setSearch(search);
+  };
+
   return (
-    <View style={styles.root}>
-      <Text>ini home</Text>
-      <Button
-        title="Description"
-        onPress={() => {
-          navigation.navigate("Description");
-        }}
+    <View style={{ flex: 1, backgroundColor: "dodgerblue" }}>
+      <SearchBar
+        placeholder="Search for Doctor"
+        onChangeText={updateSearch}
+        value={search}
+      />
+      <FlatList
+        style={{ padding: 10 }}
+        data={doctors}
+        numColumns={2}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Card props={item} navigation={navigation} />}
       />
     </View>
   );
