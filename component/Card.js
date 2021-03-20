@@ -6,7 +6,7 @@ export default function CardComponent({ props, navigation }) {
   const { id, name, img, specialist } = props;
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Description", { props: props })}
+      onPress={() => navigation.navigate("Description", { id })}
       style={{
         padding: 15,
         flex: 0.5,
