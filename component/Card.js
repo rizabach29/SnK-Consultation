@@ -10,7 +10,7 @@ export default function CardComponent({ props, navigation }) {
       style={{
         padding: 15,
         flex: 0.5,
-        backgroundColor: "rgba(255,255,255,.05)",
+        backgroundColor: "rgba(255,255,255,.3)",
         margin: 5,
         borderRadius: 12,
         justifyContent: "center",
@@ -31,7 +31,7 @@ export default function CardComponent({ props, navigation }) {
             fontSize: 14,
             fontWeight: "bold",
             flexWrap: "wrap",
-            color: "white",
+            color: "rgb(51,71,91)",
             paddingTop: 10,
           }}
         >
@@ -42,7 +42,7 @@ export default function CardComponent({ props, navigation }) {
             fontSize: 12,
             opacity: 0.75,
             flexWrap: "wrap",
-            color: "white",
+            color: "#444",
           }}
         >
           {specialist}
