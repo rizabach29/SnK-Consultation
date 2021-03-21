@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Linking } from "react-native";
+import { StyleSheet, View, ScrollView, Linking } from "react-native";
 import { Text, SocialIcon } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -27,9 +27,8 @@ export default description = () => {
       <View
         style={{
           alignItems: "center",
-          paddingLeft: 20,
-          paddingRight: 20,
-          marginTop: 36,
+          paddingTop: 8,
+          flex: 1,
         }}
       >
         <Avatar
@@ -45,16 +44,18 @@ export default description = () => {
         <Text style={{ fontWeight: "bold", opacity: 0.5, paddingTop: 3 }}>
           {state.specialist}
         </Text>
+      </View>
+      <ScrollView style={{ flex: 1, marginTop: 24 }}>
         <Text
           style={{
-            paddingTop: 30,
-            lineHeight: 20,
-            textAlign: "center",
+            lineHeight: 24,
+            textAlign: "justify",
+            fontSize: 14,
           }}
         >
           {state.description}
         </Text>
-      </View>
+      </ScrollView>
       <View style={styles.button}>
         <SocialIcon
           Component={TouchableOpacity}
@@ -76,7 +77,11 @@ export default description = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "rgb(255, 125, 125)",
+    backgroundColor: "#eef",
+    paddingTop: 24,
+    paddingBottom: 16,
+    paddingRight: 24,
+    paddingLeft: 24,
   },
-  button: { flex: 1, justifyContent: "flex-end", marginBottom: 24 },
+  button: { justifyContent: "flex-end", marginTop: 24 },
 });

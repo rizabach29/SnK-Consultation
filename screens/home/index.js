@@ -35,8 +35,23 @@ export default home = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "dodgerblue" }}>
+    <View style={{ flex: 1, backgroundColor: "#eef" }}>
       <SearchBar
+        inputContainerStyle={{ backgroundColor: "#28b87a" }}
+        leftIconContainerStyle={{
+          backgroundColor: "#28b87a",
+        }}
+        searchIcon={{ color: "white" }}
+        clearIcon={{ color: "white" }}
+        inputStyle={{ backgroundColor: "#28b87a", color: "white" }}
+        placeholderTextColor="white"
+        iconStyle={{ backgroundColor: "green", color: "white" }}
+        containerStyle={{
+          backgroundColor: "#eef",
+          justifyContent: "space-around",
+          borderTopWidth: 0,
+          borderBottomWidth: 0,
+        }}
         placeholder="Search for Doctor"
         onChangeText={(search) => {
           searchFilterFunction(search);
@@ -44,6 +59,7 @@ export default home = ({ navigation }) => {
         onClear={() => {
           searchFilterFunction("");
         }}
+        round
         value={search}
       />
       <FlatList
