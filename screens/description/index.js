@@ -1,23 +1,17 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Linking } from "react-native";
 import { Text, SocialIcon } from "react-native-elements";
 import { Avatar } from "react-native-elements/dist/avatar/Avatar";
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
-import Icon from "react-native-vector-icons/MaterialIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import doctors from "./../../doctor_list.json";
-import {
-  useFocusEffect,
-  useNavigation,
-  useRoute,
-} from "@react-navigation/native";
+import { useFocusEffect, useRoute } from "@react-navigation/native";
 
 export default description = () => {
   const route = useRoute();
   const { id } = route.params;
   const [state, setState] = useState({});
+
+  const message = `Hi, I’d like to make an appointment for ${state.name} today`;
 
   useFocusEffect(
     React.useCallback(() => {
@@ -64,7 +58,11 @@ export default description = () => {
       <View style={styles.button}>
         <SocialIcon
           Component={TouchableOpacity}
-          onPress={() => alert("hello")}
+          onPress={() => {
+            Linking.openURL(
+              `whatsapp://send?text=${message}&phone=${state.telp}`
+            );
+          }}
           raised
           type="whatsapp"
           button
